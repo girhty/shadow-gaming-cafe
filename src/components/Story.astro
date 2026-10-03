@@ -1,0 +1,46 @@
+---
+const farmImage =
+  'https://scraper.places.sumerai.tech/api/v1/place-image?ref=places%2FChIJS2EuVIuDVxUR9jiWwhwo8TY%2Fphotos%2FAa-ngMZ5xwSYwmMlvoVS6DdKcRJcQMkCKTzjkLkDcNzGq9M10kIP0JgZR2vhlY4tW-VO5EOCI319DYH_fj_tBewaO0PS_mFMCnbcGJe9T2SBgiPbMcZU98hE0SdxNE1hPY5SN1WSkrhRi9Vuunk-f82tIFcBmDrL1tET3xdZ9rQ0gOEeMHjIGMCvbFZWpVPE4nT92iket_4VI_RmXZI4FdDDhwltiKTEUkD_2USUnCUnkemQv1XK1c8160j0JviuaPcUIeAJ5xHSBrHbozDdmlOufGqB1xFMl5tDQU153aNmf4G8nWKTj9FRPbbKdOa4o0jAEHU2MoUPrJJURabrBajVa4fXVWBvbzgP8UleL0DY26eUbdf8TMZFaw8VdFT6nnicH1LMvt8q8L3NftrrzWkEG7AtAxcK0cyKE40BxuRHJMVgXzGf9IdaWfgyIpUoDLNB';
+---
+
+<section id="story" class="grid min-h-[600px] grid-cols-1 md:grid-cols-2" style="background: rgb(22,17,13);">
+  <!-- Text column -->
+  <div class="reveal reveal-left flex flex-col justify-center p-8 md:p-16 lg:p-20" style="transition-delay: 100ms;">
+    <p class="label mb-4">Open 24 / 7 · Baghdad</p>
+    <h2 style="font-size: clamp(32px, 4vw, 56px);">More Than a Café. It's Your Second Living Room.</h2>
+    <div class="mt-6 mb-8 h-px w-10 bg-amber"></div>
+    <p class="text-[17px] leading-[1.75] text-cream-muted">
+      Shadow Gaming Cafe opened on Palestine Street with one idea: give Baghdad a place that stays lit
+      long after the rest of the city sleeps. PCs, a PS5, a billiard table and a proper drinks counter —
+      all under one roof, all day and all night.
+    </p>
+    <p class="mt-5 text-[17px] leading-[1.75] text-cream-muted">
+      From late-night ranked sessions to Gulf Cup watch parties on the big screen, the room fills with
+      students, squads and regulars who keep coming back for the same reason: it's quiet when you need
+      quiet, loud when you want loud, and open every single hour of the week.
+    </p>
+    <a
+      href="#nights"
+      class="mt-8 inline-flex items-center gap-1 text-sm font-semibold text-amber transition-all hover:underline"
+    >
+      See what's on this week <span aria-hidden="true">→</span>
+    </a>
+  </div>
+
+  <!-- Image column -->
+  <div class="reveal reveal-right relative h-[280px] overflow-hidden md:h-auto" style="transition-delay: 250ms;">
+    <img
+      src={farmImage}
+      alt="Shadow Gaming Cafe — play floor and lounge area"
+      class="absolute inset-0 h-full w-full object-cover object-center"
+      loading="lazy"
+    />
+    <div class="absolute inset-0" style="background: rgba(120,60,0,0.18);" aria-hidden="true"></div>
+    <div
+      class="absolute bottom-6 left-6 border border-amber/40 bg-espresso/80 px-4 py-3 backdrop-blur"
+    >
+      <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-amber">Palestine St.</p>
+      <p class="mt-1 text-sm text-cream">تقاطع النخلة — Baghdad</p>
+    </div>
+  </div>
+</section>

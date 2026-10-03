@@ -1,0 +1,18 @@
+---
+/* Signature hero element: three wavy amber paths rising above the headline */
+const steamPaths = [
+  'M0 60 Q8 45 0 30 Q-8 15 0 0',
+  'M0 60 Q-6 45 0 30 Q6 15 0 0',
+  'M0 60 Q10 45 0 30 Q-10 15 0 0',
+];
+---
+
+<div class="steam" aria-hidden="true">
+  {
+    steamPaths.map((d) => (
+      <svg width="20" height="64" viewBox="-12 -4 24 68" fill="none">
+        <path d={d} />
+      </svg>
+    ))
+  }
+</div>

@@ -1,0 +1,101 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Shadow Gaming Cafe — 24/7 Gaming, Coffee & Billiards in Baghdad',
+  description =
+    'Shadow Gaming Cafe on شارع فلسطين, Baghdad. PS5 & PC gaming, billiards, table tennis, hookah and drinks — open 24 hours, 7 days a week. Rated 5.0 on Google.',
+} = Astro.props;
+
+const ogImage =
+  'https://scraper.places.sumerai.tech/api/v1/place-image?ref=places%2FChIJS2EuVIuDVxUR9jiWwhwo8TY%2Fphotos%2FAa-ngMZGuitGBrT4m0D9NZmzYlWR4-UCszKFN0j4T2e_JSkaM_IrA6e2McDWZRQc-bMHa_69VRd3Mo8iUJRHAxTrFAWqv3gTeiquLwGt_X_TCnDWgEB066wNRZB6cAx43aeF5CRT_epjSrpoc5xLfuEZirZJTt9KZjq9lUM5ihPx1Oqoez0UbAu2v9oqP2OwNQhqXl6oGVd3nlHhbj8Ls4yhVimPxn7BC2GUUlb9CKnrbZR9eiGM9z9BPO3XBGRKArMxk74XRNPLoz3SbwFhz9u5OBxHpbbeVSxDjJyXsP0Ezfnmqn8sKO82WQTiPdwnTYh1Lj0aOMvnhgu5HyFwXSOHObmaWImKrV8bYZFHcjJd7ydfj1SlM01RnuLavkH9uj0sS0-93yksog1s4-6eZ9zfSGefr5P0Dyg62mdMHLL4TPFaQy4XtBt93luOKjNAEFJW';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'EntertainmentBusiness',
+  name: 'Shadow Gaming Cafe',
+  image: ogImage,
+  telephone: '0780 501 1000',
+  url: 'https://shadow-gaming-cafe.netlify.app',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'شارع فلسطين — تقاطع النخلة',
+    addressLocality: 'Baghdad',
+    addressRegion: 'Baghdad Governorate',
+    addressCountry: 'IQ',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 33.3152, longitude: 44.4037 },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+    opens: '00:00',
+    closes: '23:59',
+  },
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5', reviewCount: '4' },
+  sameAs: ['https://www.instagram.com/shadow_gamingcafe/'],
+};
+---
+
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0d0b09" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-amber focus:px-4 focus:py-2 focus:text-espresso focus:font-semibold"
+    >
+      Skip to content
+    </a>
+
+    <slot />
+
+    <script>
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealEls = document.querySelectorAll('.reveal');
+
+      if (reduced || !('IntersectionObserver' in window)) {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      }
+    </script>
+  </body>
+</html>

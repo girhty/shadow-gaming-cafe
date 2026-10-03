@@ -1,0 +1,138 @@
+---
+const profile =
+  'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-19/672385769_18082110035145796_6326170817491969722_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=111&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy44MjMuQzMifQ%3D%3D&_nc_ohc=AizY8CWUBYoQ7kNvwEr6oQr&_nc_oc=AdrY6S5IbPQRWyCDzBkH_E971-xD1Qdbcj5vt71vLRmclrM5CUSTvesFcCJZmZEfmUo&_nc_zt=24&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=dEhpLA_1HWyYFWIk04j60A&_nc_ss=7fa8c&oh=00_AQNSQXucJYAcCNXWEAFnWR5vjTQMRroA3GQMXI0tfFpJ5A&oe=6AC710DA';
+
+const posts = [
+  {
+    caption:
+      '🔥 من 10/1… شادو جيمنج كافيه يفتحلكم 24 ساعة! من الصبح لليل… ومن الليل للصباح 🎮🎱☕ أجواء شادو مستمرة على مدار الأسبوع بدون توقف! 📍 العنوان: شارع فلسطين – تقاطع النخلة',
+    image:
+      'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/825320583_18108924479145796_3477156350005917137_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=jhe-ribFjsQQ7kNvwHUrDEx&_nc_oc=Adr1MorDJy3qkszhSUFscE1kN1sdK_uTTUhr0HLp1o7vaVHrOwV8hR_NOe1iYGVY5tM&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=V-bzBWqZJvHJyhQ2LiF12w&_nc_ss=7fa8c&oh=00_AQOEKLChGJMKkmt30sI0EEfkexS1Vy5SI1w0BLP8gdCJUA&oe=6AC6EA37',
+  },
+  {
+    caption:
+      'العراق باقي مباراة ويحسم صدارة مجموعته.. لا تفوت حماس ومتعة المباراة داخل شادو — موعدنا يوم الثلاثاء الساعة 8:30 مساءً',
+    image:
+      'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/825320458_18108672248145796_7037713695783998496_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=Ec9lMd3nLTsQ7kNvwHGklJ1&_nc_oc=Adoks5lmj4Ri_np_nehcZwf75k-2wD7hm_nuvVu7edwhz6C0-BcbLKgdJDOA-Gyvnmc&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=V-bzBWqZJvHJyhQ2LiF12w&_nc_ss=7fa8c&oh=00_AQPUnv29WRpZutc5-K-69K0c-LoIxwF4C9z7GsFpIWlV1A&oe=6AC6F062',
+  },
+  {
+    caption:
+      '🇮🇶 العراق × 🇴🇲 عُمان — موعدنا باجر داخل شادو جيمنج كافيه لمتابعة المباراة بأجواء حماسية وشاشة كبيرة 🎮⚽️🕠 الساعة 5:30 مساءً',
+    image:
+      'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/809315338_18107954930145796_5502872561198913881_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=5p8BnN-NsQwQ7kNvwGoPV6M&_nc_oc=AdolH0w9I7KWU1CBjnbs8i80NDJDbPJ8wEBOMeqKqHQTzmjdFNFEEP4COPa5Dm20I4A&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=V-bzBWqZJvHJyhQ2LiF12w&_nc_ss=7fa8c&oh=00_AQN5DkQ4RB-l9aQUR0yqDgwI-eJ6SrY9_hZhqwJOb8RgRw&oe=6AC6ED91',
+  },
+  {
+    caption:
+      '🔥 الأحد غير بشادو! ⏱️ عرض الألعاب: العب ساعتين وادفع حساب ساعة وحدة فقط 💨 عرض النركيلة 2+1: نزل نركيلتين والثالثة مجاناً 😎',
+    image:
+      'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/784979936_18104595614145796_5214092330970360259_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=WWw_cRXZlCEQ7kNvwH9yp4y&_nc_oc=Adp5SOHB3Q8RJGAGER4WlOf8SWJCNgBEEwFSRzj5DJ_NT6bX4BDWo_oHaAm5rQuBSTs&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=V-bzBWqZJvHJyhQ2LiF12w&_nc_ss=7fa8c&oh=00_AQNYrkDNCCLuGoBUo-uVtNlt_4XDnMPy5nYx3E-N09PLzA&oe=6AC700EB',
+  },
+  {
+    caption:
+      '🎮☕ كل اللي تحتاجه بمكان واحد! أجهزة PC Gaming، PlayStation 5، بليارد، منضدة، نراكيل، مشروبات ساخنة وباردة، دومنة و ورق، و غرف VIP.',
+    image:
+      'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/759531147_18099399395145796_8170123930116190242_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=A3Ki4zfPtFMQ7kNvwHwqGBy&_nc_oc=AdoBSucl4JH5e8xjrRe_RI-X2VniODxi6CG7TtcYnthxpk86aXUZ6z4ZvaTFap1FQUs&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=V-bzBWqZJvHJyhQ2LiF12w&_nc_ss=7fa8c&oh=00_AQOUgOYzBhjgicHfXUuV_eLHIYMRfVno1_tsSu4ckcGV8Q&oe=6AC703F1',
+  },
+  {
+    caption:
+      '🎓 نتائج السادس وصلت… وهسه وقت الراحة! إذا إنت من طلاب السادس الإعدادي، شدّ الرحال إلى Shadow Gaming Cafe واستفد من خصم 25% لمدة 3 أيام فقط ✨',
+    image:
+      'https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/755246630_18098519768145796_5868741169026317998_n.webp?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=GYqS27uE-owQ7kNvwGrAgFq&_nc_oc=AdpJFnaB7JvdjjbL94DY52CYECWsjpL95m5qJ6JJCG0QlbkXM9xwLX2__wNV9MKztrM&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=V-bzBWqZJvHJyhQ2LiF12w&_nc_ss=7fa8c&oh=00_AQPmfsknkp0TVspHdcNnmImsx2SZqPpfU-P1ME4AGwxBxw&oe=6AC712D8',
+  },
+];
+
+const profileUrl = 'https://www.instagram.com/shadow_gamingcafe/';
+const followers = '1,725';
+---
+
+<section id="instagram" class="px-6 py-24 md:px-16 lg:px-20" style="background: rgb(22,17,13);">
+  <div class="mx-auto max-w-6xl">
+    <!-- Header -->
+    <div class="reveal mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+      <div class="flex items-center gap-5">
+        <img
+          src={profile}
+          alt="Shadow Gaming Café Instagram profile picture"
+          class="h-16 w-16 rounded-full border border-amber/40 object-cover"
+          loading="lazy"
+          width="64"
+          height="64"
+        />
+        <div>
+          <p class="label mb-1">On Instagram</p>
+          <h2 class="text-[26px] leading-tight md:text-[34px]">@shadow_gamingcafe</h2>
+          <div class="mt-2 flex flex-wrap items-center gap-3">
+            <span
+              class="border border-amber/30 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-amber"
+            >
+              {followers} followers
+            </span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.1em] text-cream-faint">
+              Shadow Gaming Càfe 🎮
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <a
+        href={profileUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-amber"
+        aria-label="Follow Shadow Gaming Cafe on Instagram"
+      >
+        Follow @shadow_gamingcafe
+      </a>
+    </div>
+
+    <!-- Bio -->
+    <p
+      class="reveal mb-10 whitespace-pre-line border-l-[3px] pl-5 text-[15px] font-light leading-relaxed text-cream-muted"
+      style="border-color: rgb(212,137,42); transition-delay: 80ms;"
+      dir="auto"
+    >{`مفتوح 24 ساعة | 7 أيام بالأسبوع🔹
+🔹PS5 🎮-PC 🖥️
+🔹Drinks ☕️ - Snacks 🍩
+🔹Billirad 🎱 - Tennis Table 🏓
+🔹Location: شارع فلسطين - تقاطع النخلة
+🔹07765000200 📞`}</p>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+      {
+        posts.map((post, i) => (
+          <a
+            href={profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reveal group relative block overflow-hidden border transition-all duration-300 hover:scale-[1.02] hover:border-amber/60"
+            style={`transition-delay: ${i * 80}ms; background: rgb(12,9,7); border-color: rgba(212,137,42,0.1); border-radius: 0;`}
+          >
+            <div class="relative aspect-square overflow-hidden">
+              <img
+                src={post.image}
+                alt={`Instagram post by @shadow_gamingcafe`}
+                loading="lazy"
+                class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 flex items-end bg-espresso/85 p-4 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100">
+                <p
+                  class="line-clamp-4 text-xs font-light leading-relaxed text-cream"
+                  dir="auto"
+                >
+                  {post.caption}
+                </p>
+              </div>
+              <span class="absolute right-3 top-3 flex items-center gap-1 bg-espresso/80 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-amber opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                View ↗
+              </span>
+            </div>
+            <p class="p-4 line-clamp-2 text-xs font-light leading-relaxed text-cream-muted" dir="auto">
+              {post.caption}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

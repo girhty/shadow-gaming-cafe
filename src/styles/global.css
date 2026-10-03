@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Core palette */
+  --color-espresso: 12 9 7;
+  --color-espresso-mid: 22 17 13;
+  --color-espresso-lift: 32 25 18;
+  --color-amber: 212 137 42;
+  --color-amber-light: 230 165 80;
+  --color-amber-pale: 245 220 170;
+  --color-cream: 245 237 224;
+  --color-cream-muted: 200 185 165;
+  --color-cream-faint: 140 125 108;
+
+  --bg-page: rgb(var(--color-espresso));
+  --bg-card: rgb(var(--color-espresso-mid));
+  --bg-card-hover: rgb(var(--color-espresso-lift));
+  --text-primary: rgb(var(--color-cream));
+  --text-secondary: rgb(var(--color-cream-muted));
+  --text-muted: rgb(var(--color-cream-faint));
+  --accent: rgb(var(--color-amber));
+  --accent-hover: rgb(var(--color-amber-light));
+  --border-subtle: rgba(var(--color-amber) / 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgb(var(--color-amber));
+  color: #0d0b09;
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+h1 { font-size: clamp(48px, 7vw, 120px); line-height: 1.05; }
+h2 { font-size: clamp(32px, 4vw, 64px); line-height: 1.1; }
+h3 { font-size: clamp(22px, 2.5vw, 36px); line-height: 1.2; }
+
+p { max-width: 70ch; }
+
+.label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(var(--color-amber));
+}
+
+/* ---------- Buttons ---------- */
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.9rem 1.75rem;
+    border-radius: 0;
+    border: 1px solid transparent;
+    transition: all 200ms ease-out;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-amber {
+    background: rgb(var(--color-amber));
+    color: #0d0b09;
+  }
+  .btn-amber:hover,
+  .btn-amber:focus-visible {
+    background: rgb(var(--color-amber-light));
+    transform: scale(1.02);
+    filter: brightness(1.08);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: rgb(var(--color-cream));
+    border-color: rgba(245, 237, 224, 0.4);
+  }
+  .btn-ghost:hover,
+  .btn-ghost:focus-visible {
+    border-color: rgba(245, 237, 224, 0.85);
+    transform: scale(1.02);
+  }
+}
+
+/* ---------- Steam (signature hero element) ---------- */
+.steam {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1.25rem;
+  pointer-events: none;
+}
+.steam path {
+  fill: none;
+  stroke: rgb(212 137 42);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.steam svg {
+  transform-origin: bottom center;
+  animation: steam-rise 2.4s ease-in-out infinite;
+}
+.steam svg:nth-child(2) { animation-delay: 0.4s; }
+.steam svg:nth-child(3) { animation-delay: 0.8s; }
+
+@keyframes steam-rise {
+  0%   { transform: scaleY(0.3) translateY(20px); opacity: 0; }
+  35%  { opacity: 0.7; }
+  100% { transform: scaleY(1) translateY(-10px); opacity: 0; }
+}
+
+/* ---------- Marquee ---------- */
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: marquee 40s linear infinite;
+  width: max-content;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  filter: blur(8px);
+  transition:
+    opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1),
+    filter 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: opacity, transform, filter;
+}
+.reveal-left  { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
+/* ---------- Tabs (menu) ---------- */
+.tab-list {
+  display: flex;
+  border-bottom: 1px solid rgba(212, 137, 42, 0.15);
+  margin-bottom: 2.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tab-list::-webkit-scrollbar { display: none; }
+
+.tab {
+  flex: 0 0 auto;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0 0 0.75rem;
+  margin-right: 2.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(var(--color-cream-muted));
+  cursor: pointer;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.tab:last-child { margin-right: 0; }
+.tab:hover { color: rgb(var(--color-cream)); }
+.tab[aria-selected='true'] {
+  color: rgb(var(--color-amber));
+  border-bottom-color: rgb(var(--color-amber));
+}
+.tab:focus-visible {
+  outline: 2px solid rgb(var(--color-amber));
+  outline-offset: 4px;
+}
+
+.tab-panel:not([hidden]) .stagger-card {
+  animation: card-in 0.5s ease-out backwards;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+@keyframes card-in {
+  0%   { opacity: 0; transform: scale(0.95) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ---------- Focus visibility ---------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgb(var(--color-amber));
+  outline-offset: 3px;
+}
+
+/* ---------- Utilities ---------- */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; filter: none; }
+}

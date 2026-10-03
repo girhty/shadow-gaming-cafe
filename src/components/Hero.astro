@@ -1,0 +1,106 @@
+---
+import SteamAnimation from './SteamAnimation.astro';
+
+const heroImage =
+  'https://scraper.places.sumerai.tech/api/v1/place-image?ref=places%2FChIJS2EuVIuDVxUR9jiWwhwo8TY%2Fphotos%2FAa-ngMZGuitGBrT4m0D9NZmzYlWR4-UCszKFN0j4T2e_JSkaM_IrA6e2McDWZRQc-bMHa_69VRd3Mo8iUJRHAxTrFAWqv3gTeiquLwGt_X_TCnDWgEB066wNRZB6cAx43aeF5CRT_epjSrpoc5xLfuEZirZJTt9KZjq9lUM5ihPx1Oqoez0UbAu2v9oqP2OwNQhqXl6oGVd3nlHhbj8Ls4yhVimPxn7BC2GUUlb9CKnrbZR9eiGM9z9BPO3XBGRKArMxk74XRNPLoz3SbwFhz9u5OBxHpbbeVSxDjJyXsP0Ezfnmqn8sKO82WQTiPdwnTYh1Lj0aOMvnhgu5HyFwXSOHObmaWImKrV8bYZFHcjJd7ydfj1SlM01RnuLavkH9uj0sS0-93yksog1s4-6eZ9zfSGefr5P0Dyg62mdMHLL4TPFaQy4XtBt93luOKjNAEFJW';
+
+const specials = [
+  { name: 'PS5 & PC Gaming', price: '24/7' },
+  { name: 'Billiards & Table Tennis', price: 'All day' },
+  { name: 'Drinks, Snacks & Hookah', price: 'Fresh' },
+];
+---
+
+<section
+  id="top"
+  class="relative flex min-h-screen flex-col justify-end overflow-hidden px-6 pb-16 pt-24 md:px-20 md:pb-20"
+>
+  <!-- Background image -->
+  <img
+    src={heroImage}
+    alt="Interior of Shadow Gaming Cafe in Baghdad — screens glowing in a dark, warm room"
+    class="absolute inset-0 h-full w-full object-cover object-center"
+    fetchpriority="high"
+  />
+
+  <!-- Gradient layer 1: amber tint at top -->
+  <div
+    class="absolute inset-0 z-[1]"
+    style="background: linear-gradient(to bottom, rgba(120,70,10,0.35) 0%, transparent 45%);"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Gradient layer 2: darkening for text legibility -->
+  <div
+    class="absolute inset-0 z-[1]"
+    style="background: linear-gradient(to bottom, transparent 30%, rgba(13,11,9,0.75) 65%, rgba(13,11,9,0.96) 100%);"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Watermark -->
+  <span
+    aria-hidden="true"
+    class="pointer-events-none absolute bottom-0 right-0 z-[1] select-none font-playfair italic"
+    style="font-size: clamp(220px, 32vw, 480px); font-weight: 700; line-height: 0.85; color: rgba(212,137,42,0.05); transform: translateX(15%);"
+    >SHADOW</span
+  >
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-3xl">
+    <div class="relative mb-6 flex flex-wrap items-center gap-3 animate-fade-up" style="animation-delay: 0.1s;">
+      <span
+        class="inline-flex items-center gap-2 border border-amber/40 bg-espresso/70 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber backdrop-blur"
+      >
+        <span class="h-2 w-2 rounded-full bg-amber animate-pulse-dot"></span> Open now · 24 hours
+      </span>
+      <span
+        class="inline-flex items-center gap-2 border border-cream/20 bg-espresso/70 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-cream backdrop-blur"
+      >
+        <span class="text-amber" aria-hidden="true">★</span> 5.0 · Google Reviews (4)
+      </span>
+    </div>
+
+    <div class="relative">
+      <SteamAnimation />
+      <h1 class="animate-hero-in" style="animation-delay: 0.2s; color: rgb(245,237,224);">
+        Gaming Never Sleeps.
+      </h1>
+    </div>
+
+    <p
+      class="mt-6 max-w-[500px] animate-fade-up text-[18px] leading-[1.75] text-cream-muted"
+      style="animation-delay: 0.5s;"
+    >
+      PS5 and PC rigs, billiards, table tennis, hookah and proper drinks — open 24 hours a day, 7 days
+      a week on شارع فلسطين, Baghdad.
+    </p>
+
+    <div class="mt-10 flex flex-wrap gap-4 animate-fade-up" style="animation-delay: 0.7s;">
+      <a href="tel:07805011000" class="btn btn-amber">Book a Session</a>
+      <a href="#find-us" class="btn btn-ghost">Visit Us</a>
+    </div>
+
+    <!-- Floating specials card (static strip on mobile, absolute on desktop) -->
+    <div
+      class="animate-spring-in mt-10 border p-5 md:absolute md:-left-14 md:bottom-[-6.5rem] md:z-20 md:mt-0 md:min-w-[260px] md:p-6"
+      style="background: rgba(13,11,9,0.72); backdrop-filter: blur(12px); border-color: rgba(212,137,42,0.3);"
+    >
+      <p class="mb-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber">
+        Today at Shadow
+      </p>
+      <ul class="space-y-2.5">
+        {
+          specials.map((item) => (
+            <li class="flex items-center justify-between gap-4">
+              <span class="text-[13px] text-cream">{item.name}</span>
+              <span class="ml-4 text-[13px] font-bold text-amber">{item.price}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-4 border-t border-amber/20 pt-3 text-[11px] uppercase tracking-[0.1em] text-cream-faint">
+        Free WiFi · VIP Rooms · squads welcome
+      </div>
+    </div>
+  </div>
+</section>
